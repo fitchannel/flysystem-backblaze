@@ -137,10 +137,10 @@ class BackblazeAdapter extends AbstractAdapter
      */
     public function copy($path, $newPath)
     {
-        return $this->getClient()->upload([
+        return $this->getClient()->copy([
             'BucketName' => $this->bucketName,
-            'FileName'   => $newPath,
-            'Body'       => @file_get_contents($path),
+            'FileName'   => $path,
+            'SaveAs'     => $newPath
         ]);
     }
 
